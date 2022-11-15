@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+	  <NoStdLib>true</NoStdLib>
+	  <NoConfig>true</NoConfig>
+	  <RuntimeMetadataVersion>v4.0.30319</RuntimeMetadataVersion>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+
+	  <PublishAot>true</PublishAot>
+  </PropertyGroup>
+
+	<Target Name="CustomizeReferences" BeforeTargets="BeforeCompile" AfterTargets="FindReferenceAssembliesForReferences">
+		<ItemGroup>
+			<ReferencePathWithRefAssemblies Remove="@(ReferencePathWithRefAssemblies)" />
+			<ReferencePath Remove="@(ReferencePath)" />
+		</ItemGroup>
+	</Target>
+
+	<!-- The AOT compiler would want to mirror these as AppContext switches. Prevent that. -->
+	<Target Name="RemoveHostConfigurationOptions" BeforeTargets="IlcCompile" DependsOnTargets="PrepareForILLink">
+		<ItemGroup>
+			<RuntimeHostConfigurationOption Remove="@(RuntimeHostConfigurationOption)" />
+		</ItemGroup>
+	</Target>
+
+	<PropertyGroup>
+		<!-- Exclude AssemblyInfoPartialFile -->
+		<AssemblyInfoPartialFile>
+		</AssemblyInfoPartialFile>
+	</PropertyGroup>
+	
+</Project>

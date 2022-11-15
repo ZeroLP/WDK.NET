@@ -1,2 +1,3 @@
 # WDK.Net
-Bridging Kernel Driver Development to .NET with Windows Development Kit (WDK)
+Bridging Kernel Driver Development to .NET with Windows Driver Kit (WDK)
+

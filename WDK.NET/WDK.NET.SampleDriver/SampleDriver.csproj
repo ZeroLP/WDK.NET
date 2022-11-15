@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net7.0</TargetFramework>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+
+		<NoStdLib>true</NoStdLib>
+		<NoConfig>true</NoConfig>
+		<RuntimeMetadataVersion>v4.0.30319</RuntimeMetadataVersion>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+
+		<EntryPointSymbol>DriverEntry</EntryPointSymbol>
+		<LinkerSubsystem>NATIVE</LinkerSubsystem>
+		
+		<IlcSystemModule>WDK.NET</IlcSystemModule>
+		
+		<PublishAot>true</PublishAot>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="WDK.NET">
+			<HintPath>../WDK.NET/bin/Release/net7.0/WDK.NET.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<LinkerArg Include="&quot;C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\km\x64\ntoskrnl.lib&quot; /nologo /MANIFEST:NO /DRIVER:WDM /incremental:no /out:$(PublishDir)$(TargetName).sys /INTEGRITYCHECK"></LinkerArg>
+		<!--<LinkerArg Include="/verbose" />-->
+	</ItemGroup>
+	
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<Optimize>false</Optimize>
+	</PropertyGroup>
+
+	<!--Strip runtime libraries-->
+	<Target Name="CustomizeReferences" BeforeTargets="BeforeCompile" AfterTargets="FindReferenceAssembliesForReferences">
+		<ItemGroup>
+			<ReferencePathWithRefAssemblies Remove="@(ReferencePathWithRefAssemblies)" Condition="'%(Filename)' != 'WDK.NET'" />
+			<ReferencePath Remove="@(ReferencePath)" />
+		</ItemGroup>
+	</Target>
+
+	<!-- The AOT compiler would want to mirror these as AppContext switches. Prevent that. -->
+	<Target Name="RemoveHostConfigurationOptions" BeforeTargets="IlcCompile" DependsOnTargets="PrepareForILLink">
+		<ItemGroup>
+			<RuntimeHostConfigurationOption Remove="@(RuntimeHostConfigurationOption)" />
+		</ItemGroup>
+	</Target>
+
+</Project>
