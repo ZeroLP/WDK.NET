@@ -9,7 +9,7 @@ The requirements are as follows:
  - [.NET 7](https://dotnet.microsoft.com/en-us/download)
  - [Visual Studio 2022 Latest](https://visualstudio.microsoft.com/vs/)
  - [Windows 10 SDK, version 2004 (_10.0.19041.0_)](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/) 
- - [Windows Driver Kit (WDK)](https://learn.microsoft.com/en-us/windows-hardware/drivers/download-the-wdk)
+ - [Windows Driver Kit (WDK)](https://learn.microsoft.com/en-us/windows-hardware/drivers/other-wdk-downloads?source=recommendations#step-2-install-the-wdk)
 
 # Building a driver
 Publish the project with the latest Visual Studio 2022 and .NET 7 installed. Currently, the ILC(NativeAOT compiler) will complain that it failed to produce native executable for linking and the publish will fail. Just disregard that error. You will nonetheless see a driver executable file (.sys) in the publish path.
