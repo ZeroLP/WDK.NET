@@ -11,8 +11,19 @@ The requirements are as follows:
  - [Windows 10 SDK, version 2004 (_10.0.19041.0_)](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive/) 
  - [Windows Driver Kit (WDK)](https://learn.microsoft.com/en-us/windows-hardware/drivers/other-wdk-downloads?source=recommendations#step-2-install-the-wdk)
 
-# Building a driver
-Publish the project with the latest Visual Studio 2022 and .NET 7 installed. Currently, the ILC(NativeAOT compiler) will complain that it failed to produce native executable for linking and the publish will fail. Just disregard that error. You will nonetheless see a driver executable file (.sys) in the publish path.
+# Building the sample driver
+As of now, the project is set up to require few steps in order to have the driver build successfully. 
+The steps are as follows:
+1. When you first open up the project solution, configure the build configuration to targets release mode rather than debug.
+2. Build the WDK.NET project (Assuming it is in release build mode).
+3. Publish the Sampleriver in Win-x64 and in Release profile.
+4. Currently, the ILC(NativeAOT compiler) will complain that it fails to produce a native executable for linking and the publish will result in a fail. Just simply disregard that error. You will nonetheless see a driver executable file (.sys) in the publish path.
+
+# Testing the sample driver
+There are multiple ways you can test the driver in action. 
+1. A Windows virtual machine with test sign mode on (Most safe and the officially supported method of testing)
+2. Kdmapper and a WinDbg or DbgView in a Windows virtual machine (Hacky and unreliable/unsafe, yet easier to do get-go testing)
+3. Whichever driver testing method you like
 
 # TODOs
  - [ ] Create a separate class library for ILCCompliance module so it can be worked on an individual level
