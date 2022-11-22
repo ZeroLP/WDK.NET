@@ -20,9 +20,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Reference Include="WDK.NET">
-			<HintPath>../WDK.NET/bin/Release/net7.0/WDK.NET.dll</HintPath>
-		</Reference>
+		<ProjectReference Include="..\WDK.NET\WDK.NET.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

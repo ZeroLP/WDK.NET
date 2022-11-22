@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
+	<ImplicitUsings>disable</ImplicitUsings>
+	<Nullable>enable</Nullable>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 
 	  <NoStdLib>true</NoStdLib>
@@ -10,8 +11,6 @@
 	  <RuntimeMetadataVersion>v4.0.30319</RuntimeMetadataVersion>
 	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
 	  <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
-
-	  <PublishAot>true</PublishAot>
   </PropertyGroup>
 
 	<Target Name="CustomizeReferences" BeforeTargets="BeforeCompile" AfterTargets="FindReferenceAssembliesForReferences">

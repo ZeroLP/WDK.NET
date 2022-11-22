@@ -68,11 +68,6 @@ _ReSharper*/
 # Click-Once directory
 publish/
 
-# Publish Web Output
-*.Publish.xml
-*.pubxml
-*.azurePubxml
-
 # NuGet Packages Directory
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 packages/

@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDK.NET", "WDK.NET\WDK.NET.csproj", "{7F44BB11-B2A3-413B-BA65-BB4E9ED37867}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WDK.NET", "WDK.NET\WDK.NET.csproj", "{7F44BB11-B2A3-413B-BA65-BB4E9ED37867}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleDriver", "WDK.NET.SampleDriver\SampleDriver.csproj", "{D35284F0-BAD2-428B-ACDD-249264C0D9CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleDriver", "WDK.NET.SampleDriver\SampleDriver.csproj", "{D35284F0-BAD2-428B-ACDD-249264C0D9CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WDK.NET.Tests", "WDK.NET.Tests\WDK.NET.Tests.csproj", "{E60E159B-0C35-4AD4-9331-759AF8DE6B10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WDK.NET.Tests", "WDK.NET.Tests\WDK.NET.Tests.csproj", "{E60E159B-0C35-4AD4-9331-759AF8DE6B10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
