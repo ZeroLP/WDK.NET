@@ -26,9 +26,8 @@ There are multiple ways you can test the driver in action.
 3. Whichever driver testing method you like
 
 # TODOs
- - [ ] Create a separate class library for ILCCompliance module so it can be worked on an individual level
  - [ ] Further port the WDK
- - [ ] Instead of having the WDK referenced as a local DLL, properly resolve it as a project dependency (There are some compile issues with this currently)
+ - [x] Instead of having the WDK referenced as a local DLL, properly resolve it as a project dependency (There are some compile issues with this currently)
  - [ ] Etc. Please suggest via PR
 
 # Documentation
